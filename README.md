@@ -85,6 +85,8 @@ You can also document commands to lint the code or run tests. These steps help t
 ## Authors and acknowledgment
 Show your appreciation to those who have contributed to the project.
 
+Based on article [derrickotte.medium.com/how-to-create-a-calendar-from-scratch-in-react-1f2db197454d](https://derrickotte.medium.com/how-to-create-a-calendar-from-scratch-in-react-1f2db197454d).
+
 ## License
 For open source projects, say how it is licensed.
 
