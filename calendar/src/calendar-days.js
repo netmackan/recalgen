@@ -18,7 +18,28 @@ function CalendarDays(props) {
             month: firstDayOfMonth.getMonth(),
             number: firstDayOfMonth.getDate(),
             selected: (firstDayOfMonth.toDateString() === props.day.toDateString()),
-            year: firstDayOfMonth.getFullYear()
+            year: firstDayOfMonth.getFullYear(),
+        }
+
+        if (day % 7 === 0) {
+
+            // XXX: Incorrect week calculation below:
+            let currentDate = firstDayOfMonth;
+            let startDate = new Date(currentDate.getFullYear(), 0, 1);
+            var days = Math.floor((currentDate - startDate) /
+                (24 * 60 * 60 * 1000));
+            var weekNumber = Math.ceil(days / 7);
+
+            let week = {
+                currentMonth: (firstDayOfMonth.getMonth() === props.day.getMonth()),
+                date: (new Date(firstDayOfMonth)),
+                month: firstDayOfMonth.getMonth(),
+                number: weekNumber,
+                selected: (firstDayOfMonth.toDateString() === props.day.toDateString()),
+                year: firstDayOfMonth.getFullYear(),
+                week: true
+            }
+            currentDays.push(week)
         }
 
         currentDays.push(calendarDay)
@@ -28,12 +49,20 @@ function CalendarDays(props) {
         <div className="table-content">
             {
                 currentDays.map((day) => {
-                    return (
-                        <div className={"calendar-day" + (day.currentMonth ? " current" : "") + (day.selected ? " selected" : "")}
-                            onClick={() => props.changeCurrentDay(day)}>
-                                <p>{day.number}</p>
-                        </div>
-                    )
+                    if (!day.week) {
+                        return (
+                            <div className={"calendar-day" + (day.currentMonth ? " current" : "") + (day.selected ? " selected" : "")}
+                                onClick={() => props.changeCurrentDay(day)}>
+                                    <p>{day.number}</p>
+                            </div>
+                        )
+                    } else {
+                        return (
+                            <div className={"calendar-week" + (day.currentMonth ? " current" : "") + (day.selected ? " selected" : "")}>
+                                    <p>{day.number}</p>
+                            </div>
+                        )
+                    }
                 })
             }
         </div>

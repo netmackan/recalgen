@@ -28,6 +28,7 @@ export default class Calendar extends Component {
                 </div>
                 <div className="calendar-body">
                     <div className="table-header">
+                        <div className="weeknumber"><p>Week</p></div>
                         {
                             this.weekdays.map((weekday) => {
                                 return <div className="weekday"><p>{weekday}</p></div>

@@ -1,5 +1,5 @@
 .calendar {
-    width: 900px;
+    width: 1000px;
     height: 600px;
     display: flex;
     flex-direction: column;
@@ -29,6 +29,11 @@
   
   .weekday {
     width: 100px;
+    text-align: center;
+  }
+
+  .weeknumber {
+    width: 75px;
     text-align: center;
   }
   
@@ -66,4 +71,15 @@
     color: #cc0000;
     font-weight: bold;
   }
-  
+
+  .calendar-week {
+    width: 75px;
+    height: 75px;
+    position: relative;
+    border: 1px dashed #a6a6a6;
+  }
+
+  .calendar-week p {
+    text-align: center;
+    color: #a6a6a6;
+  }
