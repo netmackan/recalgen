@@ -2,41 +2,42 @@ function CalendarDays(props) {
     let firstDayOfMonth = new Date(props.day.getFullYear(), props.day.getMonth(), 1);
     let weekdayOfFirstDay = firstDayOfMonth.getDay();
     let currentDays = [];
+    let date = firstDayOfMonth;
 
     for (let day = 0; day < 42; day++) {
-        if (day === 0 && weekdayOfFirstDay === 0) {
-            firstDayOfMonth.setDate(firstDayOfMonth.getDate() - 7)
+        if (day === 0 && date === 0) {
+            date.setDate(date.getDate() - 7)
         } else if (day === 0) {
-            firstDayOfMonth.setDate(firstDayOfMonth.getDate() + (day - weekdayOfFirstDay));
+            date.setDate(date.getDate() + (day - weekdayOfFirstDay + props.firstDayOfWeek));
         } else {
-            firstDayOfMonth.setDate(firstDayOfMonth.getDate() + 1)
+            date.setDate(date.getDate() + 1)
         }
 
         let calendarDay = {
-            currentMonth: (firstDayOfMonth.getMonth() === props.day.getMonth()),
-            date: (new Date(firstDayOfMonth)),
-            month: firstDayOfMonth.getMonth(),
-            number: firstDayOfMonth.getDate(),
-            selected: (firstDayOfMonth.toDateString() === props.day.toDateString()),
-            year: firstDayOfMonth.getFullYear(),
+            currentMonth: (date.getMonth() === props.day.getMonth()),
+            date: (new Date(date)),
+            month: date.getMonth(),
+            number: date.getDate(),
+            selected: (date.toDateString() === props.day.toDateString()),
+            year: date.getFullYear(),
         }
 
         if (day % 7 === 0) {
 
             // XXX: Incorrect week calculation below:
-            let currentDate = firstDayOfMonth;
+            let currentDate = date;
             let startDate = new Date(currentDate.getFullYear(), 0, 1);
             var days = Math.floor((currentDate - startDate) /
                 (24 * 60 * 60 * 1000));
             var weekNumber = Math.ceil(days / 7);
 
             let week = {
-                currentMonth: (firstDayOfMonth.getMonth() === props.day.getMonth()),
-                date: (new Date(firstDayOfMonth)),
-                month: firstDayOfMonth.getMonth(),
+                currentMonth: (date.getMonth() === props.day.getMonth()),
+                date: (new Date(date)),
+                month: date.getMonth(),
                 number: weekNumber,
-                selected: (firstDayOfMonth.toDateString() === props.day.toDateString()),
-                year: firstDayOfMonth.getFullYear(),
+                selected: (date.toDateString() === props.day.toDateString()),
+                year: date.getFullYear(),
                 week: true
             }
             currentDays.push(week)

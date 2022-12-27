@@ -6,7 +6,12 @@ export default class Calendar extends Component {
     constructor() {
         super();
 
-        this.weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        //this.firstDayOfWeek = 0; // Sunday
+        this.firstDayOfWeek = 1; // Monday
+        let weekdayNumbers = [...Array(7).keys()].map((d) => (d + this.firstDayOfWeek) % 7)
+        let weekdayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        this.weekdays = weekdayNumbers.map((wn) => weekdayNames[wn])
+
         this.months = ['January', 'February', 'March', 'April', 'May',
                         'June', 'July', 'August', 'September', 'October', 
                         'November', 'December'];
@@ -35,7 +40,7 @@ export default class Calendar extends Component {
                             })
                         }
                     </div>
-                    <CalendarDays day={this.state.currentDay} changeCurrentDay={this.changeCurrentDay} />
+                    <CalendarDays firstDayOfWeek={this.firstDayOfWeek} day={this.state.currentDay} changeCurrentDay={this.changeCurrentDay} />
                 </div>
             </div>
         )
