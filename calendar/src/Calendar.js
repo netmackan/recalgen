@@ -33,14 +33,18 @@ export default class Calendar extends Component {
                 </div>
                 <div className="calendar-body">
                     <div className="table-header">
-                        <div className="weeknumber"><p>Week</p></div>
+                        <div className="weeknumber"><p>&nbsp;</p></div>
                         {
                             this.weekdays.map((weekday) => {
                                 return <div className="weekday"><p>{weekday}</p></div>
                             })
                         }
                     </div>
-                    <CalendarDays firstDayOfWeek={this.firstDayOfWeek} day={this.state.currentDay} changeCurrentDay={this.changeCurrentDay} />
+                    <CalendarDays
+                        firstDayOfWeek={this.firstDayOfWeek}
+                        day={this.state.currentDay}
+                        changeCurrentDay={this.changeCurrentDay}
+                        />
                 </div>
             </div>
         )

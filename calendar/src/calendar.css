@@ -72,14 +72,28 @@
     font-weight: bold;
   }
 
+  .calendar-month-odd {
+    background-color: rgb(240, 240, 240);
+  }
+
+  .calendar-month-even {
+    background-color: white;
+  }
+
   .calendar-week {
     width: 75px;
     height: 75px;
     position: relative;
-    border: 1px dashed #a6a6a6;
+    /*border: 1px dashed #a6a6a6;*/
   }
 
   .calendar-week p {
     text-align: center;
-    color: #a6a6a6;
+    color: #000000;
   }
+
+* {
+    -webkit-print-color-adjust: exact !important;   /* Chrome, Safari 6 – 15.3, Edge */
+    /*color-adjust: exact !important;*/             /* Firefox 48 – 96 */
+    print-color-adjust: exact !important;           /* Firefox 97+, Safari 15.4+ */
+}

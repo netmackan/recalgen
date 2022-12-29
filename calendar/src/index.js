@@ -5,6 +5,7 @@ import Calendar from './Calendar';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+document.title = "Refridgerator-Calendar-Generator";
 root.render(
   <React.StrictMode>
     <Calendar />
