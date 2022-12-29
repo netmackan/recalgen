@@ -1,6 +1,4 @@
-# cal-front-1
-
-
+# Refridgerator-Calendar-Generator (ReactFridgeCalGen)
 
 ## Getting started
 
