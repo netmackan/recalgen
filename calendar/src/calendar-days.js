@@ -3,6 +3,7 @@ function CalendarDays(props) {
     let weekdayOfFirstDay = firstDayOfMonth.getDay();
     let currentDays = [];
     let date = firstDayOfMonth;
+    let events = props.events;
 
     for (let day = 0; day < 52 * 7; day++) {
         if (day === 0 && date === 0) {
@@ -55,6 +56,15 @@ function CalendarDays(props) {
                             <div className={"calendar-day" + (day.currentMonth ? " current" : "") + (day.selected ? " selected" : "") + (day.month % 2 === 0 ? " calendar-month-even" : " calendar-month-odd")}
                                 onClick={() => props.changeCurrentDay(day)}>
                                     <p>{day.number}</p>
+                                    <ul>
+                                        {
+                                            matchingEvents(events, day).map((ev) => {
+                                                return (
+                                                    <li className={"calendar-event-" + ev.color}>{ev.title}</li>
+                                                )
+                                            })
+                                        }
+                                    </ul>
                             </div>
                         )
                     } else {
@@ -68,6 +78,11 @@ function CalendarDays(props) {
             }
         </div>
     )
+}
+
+function matchingEvents(events, day) {
+    //return events;
+    return [];
 }
 
 export default CalendarDays;

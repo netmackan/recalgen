@@ -16,6 +16,10 @@ export default class Calendar extends Component {
                         'June', 'July', 'August', 'September', 'October', 
                         'November', 'December'];
 
+        this.events = [
+            {title: "event 1", date: new Date(2022, 12, 13), color: "1"}
+        ];
+
         this.state = {
             currentDay: new Date()
         }
@@ -43,6 +47,7 @@ export default class Calendar extends Component {
                     <CalendarDays
                         firstDayOfWeek={this.firstDayOfWeek}
                         day={this.state.currentDay}
+                        events={this.events}
                         changeCurrentDay={this.changeCurrentDay}
                         />
                 </div>
