@@ -17,8 +17,9 @@ export default class Calendar extends Component {
                         'November', 'December'];
 
         this.events = [
-            {title: "event 1", date: new Date(2023, 0, 13), color: "1"},
-            {title: "event 2", date: new Date(2023, 0, 19), color: "2"},
+            {title: "event 1", start: new Date(2023, 0, 13), end: new Date(2023, 0, 13), color: "1"},
+            {title: "event 2", start: new Date(2023, 0, 19), end: new Date(2023, 0, 19), color: "2"},
+            {title: "long event 1", start: new Date(2023, 0, 21), end: new Date(2023, 0, 26), color: "1"}
         ];
 
         this.state = {

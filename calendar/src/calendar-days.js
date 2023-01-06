@@ -82,9 +82,7 @@ function CalendarDays(props) {
 
 function matchingEvents(events, day) {
     return events.filter((e) => {
-        return e.date.getFullYear() === day.date.getFullYear()
-            && e.date.getMonth() === day.date.getMonth()
-            && e.date.getDate() === day.date.getDate();
+        return e.start.getTime() <= day.date.getTime() && e.end.getTime() >= day.date.getTime();
     })
 }
 
